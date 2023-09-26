@@ -411,8 +411,10 @@ function noStyles() {
 }
 
 function reStyle(n) {
-    noStyles()
-    document.styleSheets[n].disabled = false;
+    noStyles();
+    if (n === 0) {
+        document.styleSheets[0].disabled = false;
+    }
 }
 
 function closeBlackdiv() {
