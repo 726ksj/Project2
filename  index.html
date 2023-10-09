@@ -12,7 +12,7 @@
 <body>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    ...
+    <!-- 네비게이션 바 내용 -->
 </nav>
 
 <main role="main" class="container">
@@ -21,123 +21,69 @@
         <p>Add and explore new words</p>
     </div>
 
-    <div class="table-responsive">
-        <h3>Words and Meanings</h3>
-        <table class="table table-striped table-sm">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Word</th>
-                    <th>Meaning</th>
-                    <th>Example</th>
-                    <th>Date Added</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Exemplar</td>
-                    <td>A person or thing...</td>
-                    <td>The best results...</td>
-                    <td>2023.10.08</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm view-button" onclick="openModal('Exemplar', 'A person or thing...', 'The best results...')">View</button>
-                        <button class="btn btn-secondary btn-sm edit-button" onclick="location.href='edit.html'">Edit</button>
-                        <button class="btn btn-danger btn-sm delete-button" onclick="deleteWord()">Delete</button>
-                    </td>
-                </tr>
-                <!-- You can add more rows as needed -->
-            </tbody>
+    <!-- Add Word Form -->
+    <h3>Add New Word</h3>
+    <form action="#" method="POST">
+        <table class="table table-borderless">
+            <tr>
+                <td><label for="add-word">Word:</label></td>
+                <td><input type="text" id="add-word" name="word" required></td>
+            </tr>
+            <tr>
+                <td><label for="add-meaning">Meaning:</label></td>
+                <td><input type="text" id="add-meaning" name="meaning" required></td>
+            </tr>
+            <tr>
+                <td><label for="add-example">Example:</label></td>
+                <td><input type="text" id="add-example" name="example"></td>
+            </tr>
         </table>
-    </div>
+        <button type="submit" class="btn btn-primary">Add Word</button>
+    </form>
+
+    <hr>
+
+    <!-- Word List Table -->
+    <h3>Words and Meanings</h3>
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Word</th>
+                <th>Meaning</th>
+                <th>Example</th>
+                <th>Date Added</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 예시 단어 데이터 -->
+            <tr>
+                <td>1</td>
+                <td>Exemplar</td>
+                <td>A person or thing...</td>
+                <td>The best results...</td>
+                <td>2023.10.08</td>
+                <td>
+                    <button class="btn btn-primary btn-sm view-button" onclick="location.href='view.html'">View</button>
+                    <button class="btn btn-secondary btn-sm edit-button" onclick="location.href='edit.html'">Edit</button>
+                    <button class="btn btn-danger btn-sm delete-button" onclick="deleteWord()">Delete</button>
+                </td>
+            </tr>
+            <!-- 여기에 추가 단어 데이터를 넣을 수 있습니다. -->
+        </tbody>
+    </table>
 </main>
 
-<div id="wordModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="modal-word">Word</h2>
-        <p><strong>Meaning:</strong> <span id="modal-meaning"></span></p>
-        <p><strong>Example:</strong> <span id="modal-example"></span></p>
-    </div>
-</div>
-
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f3f5;
-    }
-
-    .header-section {
-        background-color: #f7f7f9;
-        padding: 20px 0;
-        margin-bottom: 20px;
-        text-align: center;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .table {
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0,0,0,0.4);
-    }
-
-    .modal-content {
-        background-color: #fefefe;
-        margin: 10% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 50%;
-        border-radius: 10px;
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover, .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .btn {
-        margin-right: 5px;
-    }
+    /* 이전 코드에서 사용된 스타일 */
 </style>
 
 <script>
     function deleteWord() {
         return confirm("Do you want to delete this word?");
     }
-
-    function openModal(word, meaning, example) {
-        document.getElementById("modal-word").innerText = word;
-        document.getElementById("modal-meaning").innerText = meaning;
-        document.getElementById("modal-example").innerText = example;
-        document.getElementById("wordModal").style.display = "block";
-    }
-
-    function closeModal() {
-        document.getElementById("wordModal").style.display = "none";
-    }
+    // 필요한 스크립트 추가
 </script>
 
 </body>
