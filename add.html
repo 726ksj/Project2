@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Word</title>
-    <link rel="stylesheet" href="styles.css">
+    ...
+    <title>Add New Word</title>
+    ...
 </head>
+
 <body>
-    <header>
-        <h1>Add Word</h1>
-    </header>
-    
-    <main>
-        <form id="addForm">
-            <label for="word">Word:</label>
-            <input type="text" id="word" name="word" required>
-            
-            <button type="submit">Add</button>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        ...
+    </nav>
+
+    <main role="main" class="container">
+        <div class="header-section">
+            <h2>Add a New English Word</h2>
+            <p>Fill in the details of the word you'd like to add.</p>
+        </div>
+        
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="word">Word:</label>
+                <input type="text" class="form-control" id="word" required>
+            </div>
+
+            <div class="form-group">
+                <label for="meaning">Meaning:</label>
+                <textarea class="form-control" id="meaning" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="example">Example:</label>
+                <textarea class="form-control" id="example" rows="3" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Word</button>
         </form>
     </main>
-    
-    <footer>
-    </footer>
-    
-    <script>
-    </script>
+    ...
 </body>
 </html>

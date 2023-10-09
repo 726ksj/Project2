@@ -1,27 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>English Word List</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="formal.css">
+    <link rel="stylesheet" type="text/css" href="my.css" media="screen and (max-width: 768px)">
 </head>
+
+<script>
+    function deleteWord() {
+        return confirm("Do you want to delete this word?");
+    }
+
+    function openModal(word, meaning, example) {
+        document.getElementById("modal-word").innerText = word;
+        document.getElementById("modal-meaning").innerText = meaning;
+        document.getElementById("modal-example").innerText = example;
+        document.getElementById("wordModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("wordModal").style.display = "none";
+    }
+</script>
+
 <body>
-    <header>
-        <h1>English Word List</h1>
-    </header>
-    
-    <main>
-        <ul>
-            <li>
-                <a href="view.html">Word 1</a>
-                <button>Edit</button>
-                <button>Delete</button>
-            </li>
-        </ul>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    ...
+</nav>
+
+<main role="main" class="container">
+    <div class="header-section">
+        <h2>English Word List</h2>
+        <p>Add and explore new words</p>
+    </div>
+
+    <div class="table-responsive">
+        <h3>Words and Meanings</h3>
+        <table class="table table-striped table-sm">
+            ...
+                    <tr>
+                        <td>1</td>
+                        <td>Exemplar</td>
+                        <td>A person or thing...</td>
+                        <td>The best results...</td>
+                        <td>2023.10.08</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm view-button" onclick="openModal('Exemplar', 'A person or thing...', 'The best results...')">View</button>
+                            <button class="btn btn-primary btn-sm edit-button" onclick="location.href='edit.html'">Edit</button>
+                            <button class="btn btn-danger btn-sm delete-button" onclick="deleteWord()">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
-    
-    <footer>
-    </footer>
+
+    <div id="wordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-word">Word</h2>
+            <p><strong>Meaning:</strong> <span id="modal-meaning"></span></p>
+            <p><strong>Example:</strong> <span id="modal-example"></span></p>
+        </div>
+    </div>
+
+    <style>
+        .header-section {
+            background-color: #f7f7f9;
+            padding: 20px 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
 </body>
+
 </html>
