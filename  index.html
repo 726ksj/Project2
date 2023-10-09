@@ -80,6 +80,46 @@
 </style>
 
 <script>
+function addWordToTable() {
+    // 단어, 의미, 예제를 가져옵니다.
+    var word = document.getElementById("add-word").value;
+    var meaning = document.getElementById("add-meaning").value;
+    var example = document.getElementById("add-example").value;
+    
+    // 현재 날짜를 가져옵니다.
+    var currentDate = new Date();
+    var formattedDate = currentDate.getFullYear() + "." + (currentDate.getMonth() + 1) + "." + currentDate.getDate();
+
+    // 테이블에 새 행을 추가합니다.
+    var table = document.querySelector(".table tbody");
+    var newRow = table.insertRow();
+
+    // 각 셀에 데이터를 추가합니다.
+    newRow.insertCell(0).innerText = table.rows.length;  // 숫자 (예: 1, 2, 3, ...)
+    newRow.insertCell(1).innerText = word;
+    newRow.insertCell(2).innerText = meaning;
+    newRow.insertCell(3).innerText = example;
+    newRow.insertCell(4).innerText = formattedDate;
+
+    // 동작 버튼을 추가합니다.
+    var actionCell = newRow.insertCell(5);
+    actionCell.innerHTML = `
+        <button class="btn btn-primary btn-sm view-button" onclick="location.href='view.html'">View</button>
+        <button class="btn btn-secondary btn-sm edit-button" onclick="location.href='edit.html'">Edit</button>
+        <button class="btn btn-danger btn-sm delete-button" onclick="deleteWordFromTable(this)">Delete</button>
+    `;
+
+    // 입력 폼을 초기화합니다.
+    document.getElementById("add-word").value = "";
+    document.getElementById("add-meaning").value = "";
+    document.getElementById("add-example").value = "";
+}
+
+function deleteWordFromTable(button) {
+    var row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+}
+
     function deleteWord() {
         return confirm("Do you want to delete this word?");
     }
