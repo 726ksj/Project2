@@ -32,23 +32,25 @@
                 <td><input type="text" id="add-example" name="example"></td>
             </tr>
         </table>
-        <button type="submit" class="btn btn-primary">추가</button>
+        <button type="button" class="btn btn-primary" onclick="testAlert()">추가</button>
     </form>
 </main>
 
 <script>
-    function addNewWord() {
-
+    function testAlert() {
         alert("게시물이 추가됩니다");
+    }
+
+    function addNewWord() {
         var word = document.getElementById("add-word").value;
         var meaning = document.getElementById("add-meaning").value;
-        var example = document.getElementById("add-example").value;
 
         // Validation checks
         if(word === "" || meaning === "") {
             alert("Word and Meaning are required fields.");
             return;
         }
+
         // In a real scenario, send this data to a server to store in a database
     }
 </script>
