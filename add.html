@@ -38,6 +38,8 @@
 
 <script>
     function addNewWord() {
+
+        alert("게시물이 추가됩니다");
         var word = document.getElementById("add-word").value;
         var meaning = document.getElementById("add-meaning").value;
         var example = document.getElementById("add-example").value;
@@ -47,8 +49,6 @@
             alert("Word and Meaning are required fields.");
             return;
         }
-
-        alert("게시물이 추가됩니다");
         // In a real scenario, send this data to a server to store in a database
     }
 </script>
